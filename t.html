@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デバイス間同期</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 デバイス間同期</h1>
+        <p class="subtitle">ルームURLを共有して、デバイスを瞬時に接続します。</p>
+
+        <div class="status waiting" id="status">
+            <div class="status-indicator"></div>
+            <span id="statusText">ネットワーク上のデバイスを検索中...</span>
+        </div>
+
+        <!-- Nearby devices list -->
+        <div class="device-card">
+            <h3>🔍 近くのデバイス (タップして接続)</h3>
+            <div id="devicesList">
+                <div class="empty-state">
+                    <p>📡 スキャン中...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connected devices list -->
+        <div class="device-card">
+            <h3>🔌 接続中のデバイス</h3>
+            <div id="connectedDevicesList">
+                <div class="empty-state">
+                    <p>どのデバイスにも接続していません。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shared input section -->
+        <div class="shared-input-section">
+            <h3>✏️ 共有入力フィールド <span class="sync-badge" id="syncBadge">✓</span></h3>
+            <input 
+                type="text" 
+                class="shared-input" 
+                id="sharedInput" 
+                placeholder="ここに入力すると接続中のデバイスにリアルタイムで同期されます"
+                disabled
+            >
+        </div>
+    </div>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+
+    <!-- Main client logic -->
+    <script src="client.js"></script>
+</body>
+</html>
